@@ -12,6 +12,7 @@ help:
 	echo "OUTPUT_PATH=$(OUTPUT_PATH)"
 	echo "INPUT_PATH=$(INPUT_PATH)"
 
+
 install:
 	cp "$(INPUT_PATH)/.vimrc" "$(OUTPUT_PATH)/.vimrc"
 
