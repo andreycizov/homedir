@@ -15,7 +15,9 @@ help:
 
 install:
 	cp "$(INPUT_PATH)/.vimrc" "$(OUTPUT_PATH)/.vimrc"
+	cp "$(INPUT_PATH)/user.js" "$(shell find $(OUTPUT_PATH)/.mozilla/firefox/ -maxdepth 1 | grep .default)/user.js"
 
 
 clone:
 	cp "$(OUTPUT_PATH)/.vimrc" "$(INPUT_PATH)/.vimrc"
+	cp "$(shell find $(OUTPUT_PATH)/.mozilla/firefox/ -maxdepth 1 | grep .default)/user.js" "$(INPUT_PATH)/user.js"
