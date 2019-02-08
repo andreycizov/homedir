@@ -1,5 +1,6 @@
 OUTPUT_PATH?="$(HOME)"
 INPUT_PATH?="$(CURDIR)"
+DIFF=colordiff -N -r
 
 .PHONY: help
 
@@ -18,6 +19,10 @@ install:
 	cp "$(INPUT_PATH)/.xsettingsd" "$(OUTPUT_PATH)/.xsettingsd"
 	cp "$(INPUT_PATH)/user.js" "$(shell find $(OUTPUT_PATH)/.mozilla/firefox/ -maxdepth 1 | grep .default)/user.js"
 
+diff:
+	$(DIFF) "$(INPUT_PATH)/.vimrc" "$(OUTPUT_PATH)/.vimrc"
+	$(DIFF) "$(INPUT_PATH)/.xsettingsd" "$(OUTPUT_PATH)/.xsettingsd"
+	$(DIFF) "$(INPUT_PATH)/user.js" "$(shell find $(OUTPUT_PATH)/.mozilla/firefox/ -maxdepth 1 | grep .default)/user.js"
 
 clone:
 	cp "$(OUTPUT_PATH)/.vimrc" "$(INPUT_PATH)/.vimrc"
